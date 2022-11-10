@@ -16,7 +16,7 @@ public class SinglyLinkedList
 		this.count = 1;
 	}
 	
-	public void append(int value)
+	public void appendit(int value)
 	{
 		Node newNode = new Node(value);
 		
@@ -31,8 +31,11 @@ public class SinglyLinkedList
 			{
 				currNode = currNode.nextNode;
 			}
+			currNode.setNextNode(newNode);
+			this.count++;
 		}
 	}
+	
 	public void prepend(int value)
 	{
 		Node newNode = new Node(value);
@@ -72,6 +75,9 @@ public class SinglyLinkedList
 			}
 		}
 	}
+	
+	
+	
 	public boolean removeAt(int position)
 	{
 		if(position > this.count)
@@ -135,9 +141,53 @@ public class SinglyLinkedList
 		return this.count;
 	}
 	
-	public void sort()
+	public void bubbleSort()
 	{
+		Node currNode = header;
+		Node index = null;
 		
+		int temp;
+		
+		if(header == null)
+		{
+			return;
+		}
+		else
+		{
+			while (currNode != null)
+			{
+				index = currNode.nextNode;
+				while(index != null)
+				{
+					if(currNode.data > index.data)
+					{
+						temp = currNode.data;
+						currNode.data = index.data;
+						index.data = temp;
+					}
+					index = index.nextNode;
+				}
+				currNode = currNode.nextNode;
+			}
+		}	
 	}
+	
+	public void display()
+    {
+        Node currNode = header;
+ 
+        if(header == null) 
+        {
+            System.out.println("List is empty");
+            return;
+        }
+        while(currNode != null)
+        {
+    	   System.out.print(currNode.data + " ");
+    	   currNode = currNode.nextNode;
+        }
+ 
+        System.out.println();
+    }
 
 }

@@ -1,4 +1,3 @@
-
 public class Node 
 {
 	public int data;
@@ -8,6 +7,11 @@ public class Node
 	{
 		this.data = data;
 		this.nextNode = null;
+	}
+	
+	public void setNextNode(Node nextNode)
+	{
+		this.nextNode = nextNode;
 	}
 	
 	@Override
